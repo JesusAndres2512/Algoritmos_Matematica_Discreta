@@ -1,7 +1,14 @@
+import java.util.Scanner;
+
 public class ExtendedEuclideanAlgorithm {
     public static void main(String[] args) {
-        int a = 129;
-        int b = 36;
+        Scanner capture = new Scanner(System.in);
+        int a;
+        int b;
+        System.out.println("Digite primer termino: ");
+        a = capture.nextInt();
+        System.out.println("Digite Segundo termino: ");
+        b = capture.nextInt();
 
         // Encuentra el máximo común divisor y los coeficientes de Bezout para a y b
         int[] result = extendedEuclideanAlgorithm(a, b);

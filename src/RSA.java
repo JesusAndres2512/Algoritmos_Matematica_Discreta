@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.util.Scanner;
 
 public class RSA {
     private final BigInteger p;
@@ -22,7 +23,7 @@ public class RSA {
         phi_n = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE));
 
         // Elegir un valor para (e)
-        e = BigInteger.valueOf(5); 
+        e = BigInteger.valueOf(5);
 
         // Calcular d (inverso multiplicativo de (e) módulo φ(n))
         d = extendedEuclidean(e, phi_n)[1];
@@ -58,14 +59,18 @@ public class RSA {
     }
 
     public void printValue() {
-        System.out.println("Valor de p: " + p);
-        System.out.println("Valor de q: " + q);
         System.out.println("Valor de φ(n): " + phi_n);
+        System.out.println("Valor de ");
     }
 
     public static void main(String[] args) {
-        BigInteger p = new BigInteger("13");
-        BigInteger q = new BigInteger("19");
+        Scanner capture = new Scanner(System.in);
+        BigInteger p;
+        BigInteger q;
+        System.out.println("Digite valor para el termino de p: ");
+        p = capture.nextBigInteger();
+        System.out.println("Digite valor para el termino de q: ");
+        q = capture.nextBigInteger();
 
         RSA rsa = new RSA(p, q);
         

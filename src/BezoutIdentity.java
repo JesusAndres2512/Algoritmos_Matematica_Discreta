@@ -1,7 +1,16 @@
+import java.util.Scanner;
+
 public class BezoutIdentity {
     public static void main(String[] args) {
-        int a = 129;
-        int b = 36;
+        Scanner capture = new Scanner(System.in);
+
+        int a;
+        int b;
+
+        System.out.println("Digite primer termino: ");
+        a = capture.nextInt();
+        System.out.println("Digite Segundo termino: ");
+        b = capture.nextInt();
 
         // Encuentra la identidad de Bézout para a y b
         int[] bezout = bezoutIdentity(a, b);
