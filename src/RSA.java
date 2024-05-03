@@ -6,7 +6,7 @@ public class RSA {
     private final BigInteger q;
     private BigInteger n;
     private BigInteger phi_n;
-    private BigInteger e;
+    private static BigInteger e;
     private BigInteger d;
 
     public RSA(BigInteger p, BigInteger q) {
@@ -71,6 +71,8 @@ public class RSA {
         p = capture.nextBigInteger();
         System.out.println("Digite valor para el termino de q: ");
         q = capture.nextBigInteger();
+        System.out.println("Digite valor para el termino de e: ");
+        e = capture.nextBigInteger();
 
         RSA rsa = new RSA(p, q);
         
