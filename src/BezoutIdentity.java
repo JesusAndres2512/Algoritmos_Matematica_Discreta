@@ -7,21 +7,25 @@ public class BezoutIdentity {
         int a;
         int b;
 
-        System.out.println("Digite primer termino: ");
+        System.out.println("Digite primer término: ");
         a = capture.nextInt();
-        System.out.println("Digite Segundo termino: ");
+        System.out.println("Digite segundo término: ");
         b = capture.nextInt();
 
-        // Encuentra la identidad de Bézout para a y b
-        int[] bezout = bezoutIdentity(a, b);
+        // Encuentra el máximo común divisor y la identidad de Bézout para a y b
+        int[] gcdAndBezout = calculateGCDAndBezout(a, b);
+        int gcd = gcdAndBezout[0];
+        int x = gcdAndBezout[1];
+        int y = gcdAndBezout[2];
 
-        // Imprime la identidad de Bézout
+        // Imprime el máximo común divisor y la identidad de Bézout
+        System.out.println("Máximo común divisor de " + a + " y " + b + ": " + gcd);
         System.out.println("Identidad de Bézout para " + a + " y " + b + ":");
-        System.out.println("x = " + bezout[0] + ", y = " + bezout[1]);
+        System.out.println("x = " + x + ", y = " + y);
     }
 
-    // Encuentra la identidad de Bézout para a y b
-    public static int[] bezoutIdentity(int a, int b) {
+    // Calcula el máximo común divisor y la identidad de Bézout para a y b
+    public static int[] calculateGCDAndBezout(int a, int b) {
         int x0 = 1, y0 = 0, x1 = 0, y1 = 1;
 
         while (b != 0) {
@@ -39,6 +43,7 @@ public class BezoutIdentity {
             y0 = yTemp;
         }
 
-        return new int[]{x0, y0};
+        return new int[]{a, x0, y0};
     }
 }
+
